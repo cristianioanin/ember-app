@@ -11,9 +11,10 @@ Router.map(function () {
   this.route('contact');
 
   this.route('admin', function () {
-    this.route('invitations', function() {
-      this.route('edit');
+    this.route('invitations', function () {
+      this.route('edit', { path: '/:invitation_id/edit' });
       this.route('new');
+      this.route('pending');
     });
   });
 

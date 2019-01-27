@@ -1,22 +1,3 @@
-<h1>Invitations</h1>
+<h1>List</h1>
 
-<table class="table table-bordered table-striped">
-  <thead>
-    <tr>
-      <th>ID</th>
-      <th>E-mail</th>
-      <th>Status</th>
-    </tr>
-  </thead>
-  <tbody>
-    {{#each model as |invitation|}}
-    <tr>
-      <th>{{invitation.id}}</th>
-      <td>{{invitation.email}}</td>
-      <td>{{invitation.status}}</td>
-    </tr>
-    {{/each}}
-  </tbody>
-</table>
-
-{{outlet}}
+{{invitation-list item=model}}

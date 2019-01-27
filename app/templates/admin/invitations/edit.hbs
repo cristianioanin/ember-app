@@ -1,31 +1,31 @@
-<h1>List</h1>
-
-<table class="table table-bordered table-striped">
-  <thead>
-    <tr>
-      <th>ID</th>
-      <th>E-mail</th>
-      <th>Status</th>
-    </tr>
-  </thead>
-  <tbody>
-    {{#each model as |invitation|}}
-    <tr>
-      <th>{{invitation.id}}</th>
-      <td>{{invitation.email}}</td>
-      <td>
-        <div class="input-group">
-          <select class="form-control" id="input-status" onchange={{action "setSelection" value="target.value"}}>
-            <option disabled selected>Pending</option>
-            <option value="1">Accept</option>
-            <option value="0">Reject</option>
-          </select>
-          <span class="input-group-btn">
-            <button class="btn btn-default" type="button" {{action "setInvitationStatus" invitation.id}}>Submit</button>
-          </span>
-        </div>
-      </td>
-    </tr>
-    {{/each}}
-  </tbody>
-</table>
+<div class="form-horizontal">
+  <div class="form-group">
+    <label class="col-sm-2 control-label">ID</label>
+    <div class="col-sm-10">
+      {{input disabled="disabled" type="text" value=model.id class="form-control"}}
+    </div>
+  </div>
+  <div class="form-group has-feedback {{if isValid 'has-success'}}">
+    <label class="col-sm-2 control-label">Email</label>
+    <div class="col-sm-10">
+      {{input type="text" value=model.email class="form-control"}}
+      {{#if isValid}}<span class="glyphicon glyphicon-ok form-control-feedback"></span>{{/if}}
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-2 control-label">Current status:</label>
+    <div class="input-group">
+      <span class="input-group-addon">{{model.status}}</span>
+      <select class="form-control" onchange={{action "setSelection" value="target.value"}}>
+        <option value="1" selected={{if isAccepted 'selected'}}>Accept</option>
+        <option value="0" selected={{unless isAccepted 'selected'}}>Reject</option>
+      </select>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button type="submit" class="btn btn-default" {{action 'updateInvitation' model}}>Save
+        Changes</button>
+    </div>
+  </div>
+</div>

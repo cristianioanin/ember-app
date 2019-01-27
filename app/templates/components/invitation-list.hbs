@@ -1,0 +1,23 @@
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>E-mail</th>
+      <th>Status</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each item as |invitation|}}
+    <tr>
+      <th>{{invitation.id}}</th>
+      <td>{{invitation.email}}</td>
+      <td class={{statusClassName}}> {{invitation.status}}</td>
+      <td>
+        <button class="btn btn-danger btn-sm" {{action 'deleteInvitation' invitation}}>Delete</button>
+        {{#link-to 'admin.invitations.edit' invitation.id class='btn btn-warning btn-sm'}}Edit{{/link-to}}
+      </td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
