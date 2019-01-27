@@ -19,11 +19,7 @@ export default Controller.extend({
       newInvitation.save().then(response => {
         this.set('responseMessage', `Thank you! We saved your email address with the following id: ${response.get('id')}`);
         this.set('emailAddress', '');
-        window.console.log('Done then()!');
-      }).finally(response => {
-        window.console.log('Finally!');
       });
-
     }
   }
 

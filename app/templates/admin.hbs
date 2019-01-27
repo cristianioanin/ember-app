@@ -1,0 +1,11 @@
+<h1>Invitations</h1>
+
+<div class="well">
+  <ul class="nav nav-pills">
+    {{#link-to 'admin.invitations.index' tagName="li"}}<a href="">List All</a>{{/link-to}}
+    {{#link-to 'index' tagName="li"}}<a href="">Add New</a>{{/link-to}}
+    {{#link-to 'admin.invitations.edit' tagName="li"}}<a href="">Edit Status</a>{{/link-to}}
+  </ul>
+</div>
+
+{{outlet}}
