@@ -14,7 +14,7 @@ Invitations list added under Admin:
 
 Pending requests list:
 
-![Pending invitation requests](/screenshots/2019-03-09%20(28).png)
+![Pending invitation requests list](/screenshots/2019-03-09%20(28).png)
 
 
 
